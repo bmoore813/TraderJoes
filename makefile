@@ -17,3 +17,6 @@ requirements.txt: requirements.in # update requirements.txt
 
 update:
 	pip install -r requirements.txt
+
+dashboard:
+	streamlit run app/dashboards/real_time.py

@@ -6,7 +6,7 @@ import plotly.express as px  # interactive charts
 import streamlit as st  # 🎈 data web app development
 
 st.set_page_config(
-    page_title="Real-Time Data Science Dashboard",
+    page_title="TraderJoe",
     page_icon="✅",
     layout="wide",
 )
@@ -22,7 +22,7 @@ def get_data() -> pd.DataFrame:
 df = get_data()
 
 # dashboard title
-st.title("Real-Time / Live Data Science Dashboard")
+st.title("Real-Time / Nasdaq Short-Long")
 
 # top-level filters
 job_filter = st.selectbox("Select the Job", pd.unique(df["job"]))
@@ -56,19 +56,19 @@ for seconds in range(200):
 
         # fill in those three columns with respective metrics or KPIs
         kpi1.metric(
-            label="Age ⏳",
+            label="SMA 20 day",
             value=round(avg_age),
             delta=round(avg_age) - 10,
         )
         
         kpi2.metric(
-            label="Married Count 💍",
+            label="SMA 100 day",
             value=int(count_married),
             delta=-10 + count_married,
         )
         
         kpi3.metric(
-            label="A/C Balance ＄",
+            label="Balance ＄",
             value=f"$ {round(balance,2)} ",
             delta=-round(balance / count_married) * 100,
         )
@@ -76,17 +76,17 @@ for seconds in range(200):
         # create two columns for charts
         fig_col1, fig_col2 = st.columns(2)
         with fig_col1:
-            st.markdown("### First Chart")
+            st.markdown("### Heat Map")
             fig = px.density_heatmap(
                 data_frame=df, y="age_new", x="marital"
             )
             st.write(fig)
             
         with fig_col2:
-            st.markdown("### Second Chart")
+            st.markdown("### Histogram")
             fig2 = px.histogram(data_frame=df, x="age_new")
             st.write(fig2)
 
-        st.markdown("### Detailed Data View")
+        st.markdown("### Data Table")
         st.dataframe(df)
         time.sleep(1)
