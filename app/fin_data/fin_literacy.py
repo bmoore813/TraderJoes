@@ -18,3 +18,5 @@ for col in numeric_columns:
 
 for col in date_columns:
     df[col] = pd.to_datetime(df[col])
+
+ibm = df[df['Name'] == 'IBM']
