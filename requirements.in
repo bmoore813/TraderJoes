@@ -2,3 +2,7 @@ pip-tools
 yfinance
 pandas
 matplotlib
+ipykernel
+streamlit
+plotly
+watchdog

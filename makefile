@@ -15,5 +15,5 @@ requirements.txt: requirements.in # update requirements.txt
 	@echo '==> updating requirements.txt'
 	@pip-compile --upgrade --output-file requirements.txt requirements.in
 
-update-venv:
+update:
 	pip install -r requirements.txt
