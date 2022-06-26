@@ -6,3 +6,5 @@ ipykernel
 streamlit
 plotly
 watchdog
+alpaca-trade-api
+python-dotenv
